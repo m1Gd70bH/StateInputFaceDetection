@@ -1,0 +1,2 @@
+include ':SIFD'
+include ':openCVLibrary2410'
