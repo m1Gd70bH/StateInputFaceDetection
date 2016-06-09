@@ -1,6 +1,7 @@
-package com.opencv.face_recognition.StateInputFaceDetection;
+package com.opencv.StateInputFaceDetection;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -163,10 +164,9 @@ public class MainActivity extends ActionBarActivity implements CvCameraViewListe
             Log.e("OpenCVActivity", "Error loading cascade", e);
         }
 
-        openCvCameraView.enableView();
         openCvCameraView.enableFpsMeter();  //enable fps meter
         openCvCameraView.setCameraIndex(1); //switch to front cam with 1
-
+        openCvCameraView.enableView();
     }
 
     @Override
@@ -387,6 +387,7 @@ public class MainActivity extends ActionBarActivity implements CvCameraViewListe
     @Override
     public void onResume() {
         super.onResume();
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_3, this, mLoaderCallback);
     }
 }
